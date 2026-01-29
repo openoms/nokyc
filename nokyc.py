@@ -57,7 +57,7 @@ def get_user_arguments():
         "--fiat",
         help="Fiat currency",
         type=str,
-        choices = ['eur', 'usd', 'gbp', 'cad', 'aud', 'chf', 'brl', 'czk', 'sek', 'nzd', 'dkk', 'pln'],
+        choices = ['eur', 'usd', 'gbp', 'cad', 'aud', 'chf', 'brl', 'czk', 'sek', 'nzd', 'dkk', 'pln', 'huf'],
         default='eur',
     )
     parser.add_argument(
