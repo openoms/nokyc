@@ -1,2 +1,11 @@
 __pycache__/
 nokycconfig.ini
+venv/
+*.log
+*.pid
+.env
+notify.sh
+last_offers.txt
+pinned_msg_id.txt
+*.stale-*
+notify.txt

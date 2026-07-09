@@ -74,6 +74,32 @@ One can use this script to check on current offers and decide if connecting to B
 
 While outside the scope of this project, it is very easy to automate using this script and, eg., get an SMS notification once the script finds a offer we might be interested in.
 
+## RoboSats HUF monitor
+
+This fork includes a small RoboSats monitor helper used to watch for HUF offers over Tor.
+
+Quick one-shot check:
+
+```bash
+FIAT=huf ORDER_TYPE=sell DEVIATION=15 ./monitor.sh
+```
+
+Background loop with Telegram notification:
+
+```bash
+cp notify.example.sh notify.sh
+chmod +x monitor-loop.sh monitor.sh notify.sh
+
+export TELEGRAM_BOT_TOKEN="123456:replace-me"
+export TELEGRAM_DM_CHAT_ID="123456789"
+export TELEGRAM_GROUP_CHAT_ID="-1001234567890"
+export TELEGRAM_TOPIC_ID="12345" # optional, for Telegram forum topics
+
+FIAT=huf ORDER_TYPE=sell DEVIATION=50 ./monitor-loop.sh
+```
+
+By default the monitor checks RoboSats sell offers every 10 minutes. Override `ORDER_TYPE=buy` to watch buy offers instead. Tor must be running locally, using the `TOR_PORT` configured in `nokycconfig.ini`.
+
 ## More information
 
 https://twitter.com/j4imefoo
